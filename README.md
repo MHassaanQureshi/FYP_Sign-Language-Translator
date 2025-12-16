@@ -1,4 +1,4 @@
-# 🤟 Static Sign Language Translator (Project Documentation)
+# 🤟  Sign Language Translator 
 
 ## 📌 Project Overview
 
