@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     libxext6 \
     libxrender-dev \
     libgomp1 \
-    libgl1-mesa-glx \
+    libgl1 \
     libgtk-3-dev \
     ffmpeg \
     libavcodec-dev \
@@ -29,10 +29,11 @@ RUN apt-get update && apt-get install -y \
     libtiff-dev \
     gfortran \
     openexr \
-    libatlas-base-dev \
+    libopenblas-dev \
     liblapacke-dev \
     libhdf5-dev \
     && rm -rf /var/lib/apt/lists/*
+
 
 WORKDIR /app
 
@@ -47,4 +48,4 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-CMD ["daphne", "-b", "0.0.0.0", "-p", "$PORT", "sign_backend.asgi:application"]
+CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "sign_backend.asgi:application"]
